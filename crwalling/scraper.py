@@ -57,6 +57,4 @@ def covid_scraper():
 
     #table_df.to_sql(name=table, con=engine, if_exists='append')
     driver.close()
-if __name__ == '__main__':
-    covid_scraper()
 
