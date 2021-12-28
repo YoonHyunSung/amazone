@@ -18,4 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('api/crwaling/',include('crwalling.urls')),
+    path('api/googledrive/',include('googledrive.urls')),
 ]

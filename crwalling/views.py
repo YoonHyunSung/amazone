@@ -8,19 +8,17 @@ from .serializers import TodaySerializer, WeekSerializer
 from .models import Today, Week_avg
 
 @api_view(['GET'])
-def week_detail(request, update_at):
-    ic(update_at)
-    dbToday = Today.objects.get(pk=update_at)
-    ic(dbToday)
-    todaySerializer = TodaySerializer(dbToday, many=False)
-    ic(todaySerializer)
-    return JsonResponse(data=todaySerializer.data, safe=False)
-
-@api_view(['GET'])
-def today_detail(request, update_at):
-    ic(update_at)
-    dbWeek = Week_avg.objects.get(pk=update_at)
-    ic(dbWeek)
-    weekSerializer = WeekSerializer(dbWeek, many=False)
+@parser_classes([JSONParser])
+def week_detail(request):
+    dbToday = Week_avg.objects.all().values()
+    weekSerializer = WeekSerializer(dbToday, many=True)
     ic(weekSerializer)
     return JsonResponse(data=weekSerializer.data, safe=False)
+
+
+@api_view(['GET'])
+def today_detail(request):
+    dbToday = Today.objects.all().values()
+    todaySerializer = TodaySerializer(dbToday, many=True)
+    ic(todaySerializer)
+    return JsonResponse(data=todaySerializer.data, safe=False)

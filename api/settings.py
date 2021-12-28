@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'crwalling',
+    'googledrive',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,10 +80,10 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cofin',
-        'USER': 'cofin2021',
-        'PASSWORD': '8436495k',
-        'HOST': 'admin.cp3hmqecv88t.ap-northeast-2.rds.amazonaws.com',
+        'NAME': 'mariadb',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
         'PORT': '3306'
 
     }
